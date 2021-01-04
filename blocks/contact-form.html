@@ -1,0 +1,39 @@
+
+<section class="block-contact-form">
+    <div class="wrapper">
+
+        <h2>{{block.heading}}</h2>
+
+        {{block.message | safe}}
+
+        <form method="POST" action="{{request.path}}#contact-form" enctype="multipart/form-data" id="contact-form">
+
+             {{contact_form.captcha.errors}}
+             {{contact_form.captcha.render}}
+
+            <div class="field field-width">
+                <label>Your Name</label>
+                {{contact_form.name.errors}}
+                {{contact_form.name.render}}
+            </div>
+            <div class="field field-width">
+                <label>Your Email</label>
+                {{contact_form.email.errors}}
+                {{contact_form.email.render}}
+            </div>
+            <div class="field field-width" style="clear:both;">
+                <label>Message</label>
+                {{contact_form.message.errors}}
+                {{contact_form.message.render}}
+            </div>
+            
+            <small>This site is protected by reCAPTCHA and the Google 
+                <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+            </small>
+
+            <button class="btn--inverted">Send</button>
+
+        </form>
+    </div>
+</section>

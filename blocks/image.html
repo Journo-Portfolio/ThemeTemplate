@@ -1,0 +1,15 @@
+ {% if block.image %}
+ <section class="block-image {% if block.fixed %}block-image--fixed{% endif %}">
+    <div class="wrapper">
+        {% with image=block.image %}
+            {% include 'snippets/image_credit.html' %}
+        {% endwith %}
+
+        <img {% if block.image.alt_text %}alt="{{block.image.alt_text}}" title="{{block.image.alt_text}}"{% endif %} src="{{block.image.image.url}}">
+
+        {% if block.caption and block.caption != '' %}
+            <div class="caption">{{block.caption}}</div>
+        {% endif %}
+    </div>
+</section>
+{% endif %}

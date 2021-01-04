@@ -1,0 +1,96 @@
+{% if portfolio.google_site_verification %}
+<meta name="google-site-verification" content="{{portfolio.google_site_verification}}">
+{% endif %}
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<link rel="shortcut icon" href="{{portfolio.favicon}}">
+<meta name="twitter:card" content="summary">
+<meta content="@journoportfolio" name="twitter:site">
+<meta content="Journo Portfolio" property="og:site_name">
+
+{% if portfolio.block_robots %}
+<meta name="robots" content="nofollow">
+{% endif %}
+
+{% if article %}
+<meta prefix="og: http://ogp.me/ns#" property="og:title" content="{{article.title}}">
+<meta prefix="og: http://ogp.me/ns#" property="og:description" content="{{article.seo_description}}">
+<meta content="{{article.title}}" name="twitter:title" property="og:title">
+{% else %}
+<meta prefix="og: http://ogp.me/ns#" property="og:title" content="{{portfolio.title}}{% if page.name != 'Home' %} / {{ page.name}}{% endif %}">
+<meta content="{{portfolio.title}}{% if page.name != 'Home' %} / {{ page.name}}{% endif %}" name="twitter:title" property="og:title">
+<meta prefix="og: http://ogp.me/ns#" property="og:description" content="{{page.seo_description}}">
+{% endif %}
+
+<meta content="{{portfolio.title}}" name="author">
+<meta content="{{portfolio.url}}" property="article:author">
+
+{% if portfolio.twitter %}
+<meta content="{{portfolio.twitter}}" name="twitter:creator">
+{% endif %}
+
+<base href="/">
+<meta content="{{canonical_url}}" name="twitter:url" property="og:url">
+
+{% if article %}
+<meta content="{{ article.seo_description}}" name="twitter:description" property="og:description">
+{% else %}
+<meta content="{{page.seo_description}}" name="twitter:description" property="og:description">
+{% endif %}
+
+{% if article %}
+<link rel="canonical" href="{{article.canonical_url}}">
+<meta content="{{article.seo_description}}" name="description">
+{% else %}
+<meta content="{{page.seo_description}}" name="description">
+{% endif %}
+
+ {% if portfolio.privacy == 'seo' or page.privacy == 'seo' %}
+<meta name="robots" value="noindex">
+{% endif %}
+
+{% if article %}
+    {% if article.image %}
+<meta prefix="og: http://ogp.me/ns#" property="og:image" content="{{article.image.image.url|resize('max-600')}}">
+<meta content="{{article.image.image.url|resize('max-600')}}" name="twitter:image" property="og:image">
+    {% endif %}
+{% else %}
+    {% if page.image %}
+    <meta prefix="og: http://ogp.me/ns#" property="og:image" content="{{page.image.image.url}}">
+    <meta content="{{page.image.image.url}}" name="twitter:image" property="og:image">
+    <meta property="og:image:width" content="{{page.image.image_width}}">
+    <meta property="og:image:height" content="{{page.image.image_height}}">
+    {% else %}
+        {% if portfolio.image %}
+    <meta prefix="og: http://ogp.me/ns#" property="og:image" content="{{portfolio.image.url}}">
+    <meta content="{{portfolio.image.url}}" name="twitter:image" property="og:image">
+        {% else %}
+            {% if settings.hero_image %}
+            <meta prefix="og: http://ogp.me/ns#" property="og:image" content="{{settings.hero_image.image.url}}">
+            <meta content="{{settings.hero_image.image.url}}" name="twitter:image" property="og:image">
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endif %}
+<link rel="alternate" type="application/rss+xml" title="{{portfolio.title}}" href="/rss.xml">
+
+{% if show_blog_social_links %}
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5976521380bb1d0011ab6d20&product=inline-share-buttons"></script>
+{% endif %}
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    {% if portfolio.analytics_code %}
+    ga('create', '{{portfolio.analytics_code}}', 'auto', {'name': 'clientTracker'});
+    ga('clientTracker.send', 'pageview');
+    {% endif %}
+</script>
+
+<meta content="{{theme.name}}" name="journoportfolio:theme">
+
+<link href="https://fonts.googleapis.com/css?family={{settings.google_fonts_url}}" rel="stylesheet" type="text/css">

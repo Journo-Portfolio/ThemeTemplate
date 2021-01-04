@@ -1,0 +1,39 @@
+{% extends 'templates/base.html' %}
+
+{% block content %}
+
+    {% if not article %}
+    <section class="profile" {% if settings.show_bio_only_on_home_page and not page.home %}class="hide"{% endif %} itemscope itemtype="http://data-vocabulary.org/Person">
+        <div class="wrapper">
+
+            {% if portfolio.image %}
+            <div class="profile_img" style="background-image:url('{{portfolio.image.url}}');"></div>
+            {% endif %}
+
+            <div class="logo">
+                <h1 itemprop="name">
+                    <a href="/" target="_self">{{portfolio.title}}</a>
+                </h1>
+            </div>
+
+            {% if portfolio.subscription_signup_enabled %}
+            <a id="Subscribe"><i class="fa fa-envelope-o"></i> Subscribe</a>
+            {% endif %}
+
+            <div class="social">
+                {% include 'snippets/social_links.html' %}
+            </div>
+
+            <div class="bio">{{portfolio.bio|safe}}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+
+    {% for block in page.blocks %}
+        {% set block_loop = loop %}
+        {% include block.template with context %}
+    {% endfor %}
+
+{% endblock %}

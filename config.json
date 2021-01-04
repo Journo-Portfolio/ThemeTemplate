@@ -1,0 +1,514 @@
+{
+  "theme_name": "Template",
+  "settings": [
+    {
+      "section": "General",
+      "fields": [
+        {
+          "name": "Show Bio only on Home Page?",
+          "type": "checkbox",
+          "handle": "show_bio_only_on_home_page"
+        },
+        {
+          "name": "Highlight Color",
+          "type": "color",
+          "handle": "color",
+          "default": "#ff4747"
+        },
+        {
+          "name": "Navigation Bar Color",
+          "type": "color",
+          "handle": "nav_color",
+          "default": "#222222"
+        },
+        {
+          "name": "Page Background Color",
+          "type": "color",
+          "handle": "page_bg_color",
+          "default": "#323A41"
+        },
+        {
+          "name": "Footer Background Color",
+          "type": "color",
+          "handle": "footer_bg_color",
+          "default": "#222222"
+        },
+        {
+          "name": "Social Icon Style",
+          "type": "select",
+          "default": "colour",
+          "options": [
+              {"name": "Colour Icons", "value": "colour"},
+              {"name": "Dark Icons", "value": "dark"},
+              {"name": "Light Icons", "value": "light"}
+          ],
+          "handle": "social_icon_style"
+        }
+      ]
+    },
+    {
+      "section": "Fonts",
+      "fields": [
+        {
+          "name": "Heading Font",
+          "type": "font",
+          "handle": "heading_font",
+          "default": "Montserrat:700"
+        },
+        {
+          "name": "Heading Font Color",
+          "type": "hidden",
+          "handle": "heading_font_color",
+          "default": "#ffffff"
+        },
+        {
+          "name": "Name Font",
+          "type": "font",
+          "handle": "name_font",
+          "default": "Montserrat:700"
+        },
+        {
+          "name": "Name Font Size",
+          "type": "hidden",
+          "handle": "name_font_size",
+          "default": "38px"
+        },
+        {
+          "name": "Name Font Color",
+          "type": "hidden",
+          "handle": "name_font_color",
+          "default": "#ffffff"
+        },
+        {
+          "name": "Body Font",
+          "type": "font",
+          "handle": "body_font",
+          "default": "Open+Sans:400"
+        },
+        {
+          "name": "Body Font Size",
+          "type": "hidden",
+          "handle": "body_font_size",
+          "default": "16px"
+        },
+        {
+          "name": "Body Font Color",
+          "type": "hidden",
+          "handle": "body_font_color",
+          "default": "#ffffff"
+        }
+      ]
+    },
+    {
+      "section": "Articles",
+      "fields": [
+        {
+          "name": "Hide Article Headings?",
+          "type": "checkbox",
+          "handle": "hide_article_headings"
+        },
+        {
+          "name": "Hide Article Meta?",
+          "type": "checkbox",
+          "handle": "hide_article_meta"
+        },
+        {
+          "name": "Hide Article Dates?",
+          "type": "checkbox",
+          "handle": "hide_article_dates"
+        },
+        {
+          "name": "Hide Article Excerpts?",
+          "type": "checkbox",
+          "handle": "hide_article_excerpts"
+        },
+        {
+          "name": "Date Format",
+          "type": "select",
+          "options": [
+            "22nd March 2019",
+            "March 22nd 2019",
+            "March 22, 2019",
+            "March 2019",
+            "22/03/2019",
+            "03/22/2019"
+          ],
+          "default": "22nd March 2019",
+          "handle": "date_format"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "articles",
+      "name": "Articles",
+      "icon": "book",
+      "show_design": true,
+      "fields": [
+        {
+          "name": "Heading",
+          "type": "text",
+          "handle": "heading"
+        },
+        {
+          "name": "Description",
+          "type": "richtext",
+          "handle": "description"
+        },
+        {
+          "design": true,
+          "name": "Layout",
+          "type": "select",
+          "options": [
+            "Blog",
+            "Grid"
+          ],
+          "default": "Grid",
+          "handle": "layout"
+        },
+        {
+          "design": true,
+          "name": "Show search and filter bar?",
+          "type": "checkbox",
+          "handle": "show_filter_bar"
+        }
+    ]
+    },
+    {
+      "type": "contact-form",
+      "name": "Contact Form",
+      "icon": "email",
+      "fields": [
+        {
+          "name": "Heading",
+          "type": "text",
+          "handle": "heading",
+          "default": "Get in Touch"
+        },
+        {
+          "name": "Message",
+          "type": "richtext",
+          "handle": "message"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "icon": "text_fields",
+      "fields": [
+        {
+          "name": "Content",
+          "type": "richtext",
+          "handle": "content"
+        }
+      ]
+    },
+    {
+      "type": "links",
+      "name": "Links",
+      "icon": "link",
+      "show_design": true,
+      "fields": [
+        {
+          "design": true,
+          "name": "Width",
+          "type": "select",
+          "help_text": "How wide on the page to display the links",
+          "options": [
+            "Full page",
+            "Content"
+          ],
+          "default": "Full Page",
+          "handle": "width"
+        },
+        {
+          "design": true,
+          "name": "Font Size",
+          "type": "select",
+          "options": [
+            "Large",
+            "Medium",
+            "Small"
+          ],
+          "default": "Large",
+          "handle": "font_size"
+        },
+        {
+          "design": true,
+          "name": "Margin",
+          "help_text": "The spacing between items in the grid",
+          "type": "select",
+          "options": [
+            "0px",
+            "10px",
+            "20px",
+            "30px",
+            "50px"
+          ],
+          "default": "0px",
+          "handle": "margin"
+        },
+        {
+          "design": true,
+          "name": "Column Width",
+          "type": "select",
+          "options": [1,2,3,4,5],
+          "default": 1,
+          "help_text": "The number of columns to display in a grid",
+          "handle": "columns"
+        },
+        {
+          "name": "Links",
+          "type": "list",
+          "handle": "links",
+          "list_name": "Link",
+          "fields": [
+            {
+              "name": "URL",
+              "type": "url",
+              "help_text": "The URL the block should link to when clicked on",
+              "handle": "url"
+            },
+            {
+              "name": "Text",
+              "type": "text",
+              "help_text": "The text displayed in the block",
+              "handle": "text"
+            },
+            {
+              "name": "Background Image (optional)",
+              "type": "image",
+              "handle": "image"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "featured-article",
+      "name": "Featured Article",
+      "icon": "chrome_reader_mode",
+      "fields": [
+        {
+          "name": "Article",
+          "type": "article",
+          "handle": "article"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "name": "Quote",
+      "icon": "format_quote",
+      "fields": [
+        {
+          "name": "Author",
+          "type": "text",
+          "handle": "author"
+        },
+        {
+          "name": "Quote",
+          "type": "richtext",
+          "handle": "quote"
+        }
+      ]
+    },
+    {
+      "type": "about-me",
+      "name": "About Me",
+      "icon": "assignment_ind",
+      "fields": [
+        {
+          "name": "Heading",
+          "type": "text",
+          "handle": "heading"
+        },
+        {
+          "name": "Text",
+          "type": "richtext",
+          "handle": "content"
+        },
+        {
+          "name": "Image",
+          "type": "image",
+          "handle": "image"
+        },
+        {
+          "name": "Hide Social Links?",
+          "type": "checkbox",
+          "handle": "hide_social_links"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "icon": "photo",
+      "fields": [
+        {
+          "name": "Image",
+          "type": "image",
+          "handle": "image"
+        },
+        {
+          "name": "Caption",
+          "type": "text",
+          "help_text": "Optional caption displayed below the image",
+          "handle": "caption"
+        },
+        {
+          "name": "Don't stretch to 100% width",
+          "type": "checkbox",
+          "handle": "fixed"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "icon": "videocam",
+      "fields": [
+        {
+          "name": "Embed Code",
+          "type": "textarea",
+          "help_text": "Enter a video embed code normally starting with '<iframe'",
+          "handle": "video"
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "name": "Image Gallery",
+      "icon": "collections",
+      "fields": [
+        {
+          "name": "Images",
+          "type": "list",
+          "handle": "images",
+          "list_name": "Image",
+          "fields": [
+            {
+              "name": "Image",
+              "type": "image",
+              "handle": "image"
+            },
+            {
+              "name": "Caption",
+              "help_text": "Optional caption displayed when the image is opened",
+              "type": "text",
+              "handle": "caption"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "slider",
+      "name": "Image Slider",
+      "icon": "slideshow",
+      "fields": [
+        {
+          "name": "Images",
+          "type": "list",
+          "handle": "images",
+          "list_name": "Image",
+          "fields": [
+            {
+              "name": "Image",
+              "type": "image",
+              "handle": "image"
+            },
+            {
+              "name": "Caption",
+              "help_text": "Optional caption displayed below the image",
+              "type": "text",
+              "handle": "caption"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "twitter",
+      "name": "Twitter Feed",
+      "icon": "share",
+      "fields": [
+        {
+          "name": "Twitter Handle with out the '@'",
+          "type": "text",
+          "handle": "handle"
+        },
+        {
+          "name": "Only show my likes",
+          "type": "checkbox",
+          "handle": "likes"
+        }
+      ]
+    },
+    {
+      "type": "cv",
+      "name": "PDF Embed",
+      "icon": "attach_file",
+      "fields": [
+        {
+          "name": "PDF CV/Resume or document",
+          "type": "file",
+          "handle": "file"
+        }
+      ]
+    },
+    {
+      "type": "map",
+      "name": "Map",
+      "icon": "map",
+      "show_design": true,
+      "fields": [
+        {
+          "name": "Center Address",
+          "type": "text",
+          "help_text": "Type the full address of where you want the map to be centered on",
+          "handle": "location"
+        },
+        {
+          "design": true,
+          "name": "Zoom Level",
+          "type": "select",
+          "help_text": "How zoomed in the map should be, higher is more zoomed in",
+          "options": [1,2,3,4,5,6,7,8,10,11,12,13,14,15],
+          "handle": "zoom"
+        },
+        {
+          "design": true,
+          "name": "Style",
+          "type": "select",
+          "help_text": "The color scheme of the map",
+          "options": [
+            "Greyscale",
+            "Shades of Grey",
+            "Blue Water",
+            "Light Dream",
+            "Pale Dawn",
+            "Apple Maps-esque",
+            "Unsaturated Browns"
+          ],
+          "handle": "style"
+        },
+        {
+          "design": true,
+          "name": "Size",
+          "type": "select",
+          "help_text": "How tall and wide the map should display",
+          "options": [
+            "Full Width - Narrow",
+            "Full Width - Large",
+            "Content Width - Narrow",
+            "Content Width - Large"
+          ],
+          "handle": "size"
+        }
+      ]
+    }
+  ]
+}

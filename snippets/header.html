@@ -1,0 +1,22 @@
+
+{% if portfolio.page_count > 1 %}
+<header>
+    <nav class="nav">
+        <h1>{{portfolio.title}}</h1>
+
+        <li class="mobile-menu"><a><i class="fa fa-navicon"></i></a></li>
+
+        <ul class="menu">
+            {% for page_link in portfolio.pages %}
+                {% include 'snippets/nav_link.html' %}
+            {% endfor %}
+        </ul>
+    </nav>
+</header>
+{% endif %}
+
+
+<div class="modal-nav-overlay">
+    <div class="modal-nav">
+    </div>
+</div>

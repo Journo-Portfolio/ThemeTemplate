@@ -1,0 +1,31 @@
+
+<div class="wrapper">
+    <section class="block-articles {% if loop.last %}block-articles--last{% endif %}" data-id="{{block.id}}" data-order="{{block.article_order}}">
+
+        <div class="block-articles__info">
+            {% if block.heading %}
+                <h3>{{block.heading}}</h3>
+            {% endif %}
+
+            {% if block.description %}
+            <div class="text">
+                {{block.description | safe}}
+            </div>
+            {% endif %}
+        </div>
+
+        {% include "snippets/article_filters.html" %}
+
+        <div class="masonry" id="masonry-{{loop.index}}">
+            {% for article in block.articles %}
+                {% include 'snippets/article.html' %}
+            {% endfor %}
+        </div>
+
+        {% if block.has_more %}
+        <div class="autoloader" id="ArticleLoadMore" data-block-id="{{block.id}}">
+            Load More Articles
+        </div>
+        {% endif %}
+    </section>
+</div>

@@ -1,0 +1,276 @@
+{% if portfolio.show_email %}
+<a target="_blank" href="mailto:{{portfolio.email}}"">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Email" src="{{ 'icons/dark/email.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Email" src="{{ 'icons/light/email.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Email" src="{{ 'icons/colour/email.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.github and portfolio.github != '' %}
+<a target="_blank" href="{{portfolio.github}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Facebook" src="{{ 'icons/dark/github.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Facebook" src="{{ 'icons/light/github.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Facebook" src="{{ 'icons/colour/github.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.facebook and portfolio.facebook != '' %}
+<a target="_blank" href="{{portfolio.facebook}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Facebook" src="{{ 'icons/dark/facebook.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Facebook" src="{{ 'icons/light/facebook.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Facebook" src="{{ 'icons/colour/facebook.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.twitter and portfolio.twitter != '' %}
+<a target="_blank" href="{{portfolio.twitter_url}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Twitter" src="{{ 'icons/dark/twitter.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Twitter" src="{{ 'icons/light/twitter.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Twitter" src="{{ 'icons/colour/twitter.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.linkedin and portfolio.linkedin != '' %}
+<a target="_blank" href="{{portfolio.linkedin}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Linkedin" src="{{ 'icons/dark/linkedin.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Linkedin" src="{{ 'icons/light/linkedin.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Linkedin" src="{{ 'icons/colour/linkedin.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.whatsapp and portfolio.whatsapp != '' %}
+<a target="_blank" href="{{portfolio.whatsapp}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Linkedin" src="{{ 'icons/dark/whatsapp.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Linkedin" src="{{ 'icons/light/whatsapp.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Linkedin" src="{{ 'icons/colour/whatsapp.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.google and portfolio.google != '' %}
+<a target="_blank" href="{{portfolio.google}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Google" src="{{ 'icons/dark/googleplus.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Google" src="{{ 'icons/light/googleplus.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Google" src="{{ 'icons/colour/googleplus.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.website and portfolio.website != '' %}
+<a target="_blank" href="{{portfolio.website}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Website" src="{{ 'icons/dark/www.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Website" src="{{ 'icons/light/www.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Website" src="{{ 'icons/colour/www.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+
+{% if portfolio.instagram and portfolio.instagram != '' %}
+<a target="_blank" href="{{portfolio.instagram}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Instagram" src="{{ 'icons/dark/instagram.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Instagram" src="{{ 'icons/light/instagram.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Instagram" src="{{ 'icons/colour/instagram.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.medium and portfolio.medium != '' %}
+<a target="_blank" href="{{portfolio.medium}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Medium" src="{{ 'icons/dark/medium.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Medium" src="{{ 'icons/light/medium.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Medium" src="{{ 'icons/colour/medium.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.vimeo and portfolio.vimeo != '' %}
+<a target="_blank" href="{{portfolio.vimeo}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Vimeo" src="{{ 'icons/dark/vimeo.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Vimeo" src="{{ 'icons/light/vimeo.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Vimeo" src="{{ 'icons/colour/vimeo.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.behance and portfolio.behance != '' %}
+<a target="_blank" href="{{portfolio.behance}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Behance" src="{{ 'icons/dark/behance.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Behance" src="{{ 'icons/light/behance.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Behance" src="{{ 'icons/colour/behance.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.fivehundredpx and portfolio.fivehundredpx != '' %}
+<a target="_blank" href="{{portfolio.fivehundredpx}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="500px" src="{{ 'icons/dark/500px.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="500px" src="{{ 'icons/light/500px.png' | global_asset_url }}">
+    {% else %}
+    <img alt="500px" src="{{ 'icons/colour/500px.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.dribbble and portfolio.dribbble != '' %}
+<a target="_blank" href="{{portfolio.dribbble}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Dribbble" src="{{ 'icons/dark/dribbble.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Dribbble" src="{{ 'icons/light/dribbble.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Dribbble" src="{{ 'icons/colour/dribbble.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.tumblr and portfolio.tumblr != '' %}
+<a target="_blank" href="{{portfolio.tumblr}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Tumblr" src="{{ 'icons/dark/tumblr.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Tumblr" src="{{ 'icons/light/tumblr.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Tumblr" src="{{ 'icons/colour/tumblr.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.snapchat and portfolio.snapchat != '' %}
+<a target="_blank" href="{{portfolio.snapchat}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Snapchat" src="{{ 'icons/dark/snapchat.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Snapchat" src="{{ 'icons/light/snapchat.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Snapchat" src="{{ 'icons/colour/snapchat.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.soundcloud and portfolio.soundcloud != '' %}
+<a target="_blank" href="{{portfolio.soundcloud}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Soundcloud" src="{{ 'icons/dark/soundcloud.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Soundcloud" src="{{ 'icons/light/soundcloud.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Soundcloud" src="{{ 'icons/colour/soundcloud.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.flickr and portfolio.flickr != '' %}
+<a target="_blank" href="{{portfolio.flickr}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Flickr" src="{{ 'icons/dark/flickr.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Flickr" src="{{ 'icons/light/flickr.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Flickr" src="{{ 'icons/colour/flickr.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.youtube and portfolio.youtube != '' %}
+<a target="_blank" href="{{portfolio.youtube}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="YouTube" src="{{ 'icons/dark/youtube.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="YouTube" src="{{ 'icons/light/youtube.png' | global_asset_url }}">
+    {% else %}
+    <img alt="YouTube" src="{{ 'icons/colour/youtube.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.pinterest and portfolio.pinterest != '' %}
+<a target="_blank" href="{{portfolio.pinterest}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Pinterest" src="{{ 'icons/dark/pinterest.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Pinterest" src="{{ 'icons/light/pinterest.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Pinterest" src="{{ 'icons/colour/pinterest.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.codepen and portfolio.codepen != '' %}
+<a target="_blank" href="{{portfolio.codepen}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="Codepen" src="{{ 'icons/dark/codepen.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="Codepen" src="{{ 'icons/light/codepen.png' | global_asset_url }}">
+    {% else %}
+    <img alt="Codepen" src="{{ 'icons/colour/codepen.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.reddit %}
+<a target="_blank" href="{{portfolio.reddit}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="CV" src="{{ 'icons/dark/reddit.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="CV" src="{{ 'icons/light/reddit.png' | global_asset_url }}">
+    {% else %}
+    <img alt="CV" src="{{ 'icons/colour/reddit.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}
+
+{% if portfolio.cv %}
+<a target="_blank" href="{{portfolio.cv.file.url}}">
+    {% if settings.social_icon_style == 'dark' %}
+    <img alt="CV" src="{{ 'icons/dark/cv.png' | global_asset_url }}">
+    {% elif settings.social_icon_style == 'light'  %}
+    <img alt="CV" src="{{ 'icons/light/cv.png' | global_asset_url }}">
+    {% else %}
+    <img alt="CV" src="{{ 'icons/colour/cv.png' | global_asset_url }}">
+    {% endif %}
+</a>
+{% endif %}

@@ -1,0 +1,65 @@
+
+{% if article.comments_enabled %}
+
+<div class="comments">
+<h2>{{article.published_comments_count}} Comment{% if article.published_comments_count != 1 %}s{% endif %}
+
+{% if not comment_form.errors %}
+    <a onclick="this.style.display='none';document.getElementById('commentForm').style.display='block';">Add a Comment?</a>
+{% endif %}
+
+</h2>
+
+    {% for comment in article.published_comments %}
+        {% include 'snippets/comment.html' with context %}
+    {% endfor %}
+
+    {% if new_comment %}
+        {% set comment = new_comment %}
+        {% set is_new_comment = true %}
+        {% include 'snippets/comment.html' with context %}
+    {% endif %}
+
+</div>
+
+{% if not comment_form.errors %}
+<a onclick="this.style.display='none';document.getElementById('commentForm').style.display='block';">Add a comment</a>
+{% endif %}
+
+<div class="comment-form" id="commentForm" {% if comment_form.errors %}style="display:block;"{% endif %}>
+    <form method="POST" action="{{request.path}}#comment-form" enctype="multipart/form-data" id="comment-form">
+
+             {{comment_form.captcha.errors}}
+             {{comment_form.captcha.render}}
+
+        <div class="comment-form__fields">
+            <div class="comment-form__field">
+                <label>Name</label>
+                {{comment_form.name.render}}
+                {{comment_form.name.errors}}
+            </div>
+
+            <div class="comment-form__field">
+                <label>Email (not published)</label>
+                {{comment_form.email.render}}
+                {{comment_form.email.errors}}
+
+            </div>
+        </div>
+
+        <div class="comment-form__field">
+            <label>Comment</label>
+            {{comment_form.content.render}}
+            {{comment_form.content.errors}}
+            <small>You can use markdown for links, quotes, bold, italics and lists. <a target="_blank" href="http://commonmark.org/help/">View a guide to Markdown</a></small>
+        </div>
+        
+        <small>This site is protected by reCAPTCHA and the Google 
+            <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+            <a href="https://policies.google.com/terms">Terms of Service</a> apply. You will need to verify your email to approve this comment. All comments are subject to moderation.
+        </small>
+
+        <button>Post Comment</button>
+    </form>
+</div>
+{% endif %}

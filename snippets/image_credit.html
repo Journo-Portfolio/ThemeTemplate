@@ -1,0 +1,6 @@
+
+{% if image.credit_text or image.credit_url %}
+<a target="_blank" {% if image.credit_url %}href="{{image.credit_url}}"{% endif %} class="img-credit">
+  <span>{% if image.credit_text %}{{image.credit_text}}{% else %}Image Credit{% endif %}</span>
+</a>
+{% endif %}

@@ -1,0 +1,42 @@
+{% if img_size is undefined %}
+    {% set img_size = "max-400" %}
+{% endif %}
+
+<article itemscope itemtype="http://data-vocabulary.org/Article" data-id="{{article.id}}"  class="article {% if article.has_modal %}article--modal{% endif %} {% if settings.hide_article_meta %} article--hide-meta{% endif %}{% if settings.hide_article_headings %} article--hide-heading{% endif %}{% if settings.hide_article_dates %} article--hide-date{% endif %}{% if article.hide_date %} article--hide-date{% endif %}" id="article_{{article.id}}">
+
+    <a class="article__inner {% if not article.image %}no-image{% endif %}" href="{{article.view_url}}" rel="nofollow" onclick="ga('jpAnalytics.send', 'event', 'article-view', '{{article.user.id}}-{{article.id}}', null, {'transport': 'beacon', 'hitCallback': function(){document.location = '{{article.view_url}}';}});" {% if article.item_type == 'blog' %}target="_self" {% else %}target="_blank" {% endif %}>
+
+        {% if article.image %}
+            {% if article.image.credit_text %}
+                <span target="_blank" class="img-credit">
+                    <span>{{article.image.credit_text}}</span>
+                </span>
+            {% endif %}
+            <div class="img" style="background-image:url('{{article.image.image.url|resize(img_size)}}');">
+                <img {% if article.image.alt_text %}alt="{{article.image.alt_text}}" title="{{article.image.alt_text}}"{% endif %} itemprop="image" src="{{article.image.image.url|resize(img_size)}}">
+            </div>
+        {% endif %}
+
+        <div class="content">
+
+            <div class="article__meta">
+                {% if article.publication != 'Personal' %}
+                <span itemprop="citation">{{article.publication}}</span>
+                {% endif %}
+
+                <span class="article__date">
+                    {% if article.publication != 'Personal' %} &bull; {% endif %}
+                    <span itemprop="datePublished">
+                        {{article.published_date}}
+                    </span>
+                </span>
+            </div>
+
+            <h2 class="article__title" itemprop="name">{{article.title}}</h2>
+
+            <div class="article__text" itemprop="description">
+                {{article.extract|safe}}
+            </div>
+        </div>
+    </a>
+</article>

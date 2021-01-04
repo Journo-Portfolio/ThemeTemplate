@@ -1,0 +1,41 @@
+
+{% if block.show_filter_bar %}
+<a class="mobile-only filters-show"><img src="{{ 'img/baseline_filter_list_black_18dp.png' | global_asset_url }}"> Filters & Sorting</a>
+
+<div class="block-articles-filters mobile-hide">
+
+    <div class="grid">
+        <div>
+            <label>Search</label>
+            <input onchange="journoPortfolio.updateArticleBlock({{block.id}}, 'search', this.value)" name="search" type="text" placeholder="Search by article name...">
+        </div>
+
+        <div>
+            <label>Order by</label>
+            <select onchange="journoPortfolio.updateArticleBlock({{block.id}}, 'order', this.value)">
+                <option value="custom" {% if block.article_order == "custom" %}selected{% endif %}>Featured</option>
+                <option value="newest" {% if block.article_order == "newest" %}selected{% endif %}>Latest First</option>
+                <option value="oldest" {% if block.article_order == "oldest" %}selected{% endif %}>Oldest First</option>
+                <option value="alphabetically" {% if block.article_order == "alphabetically" %}selected{% endif %}>Alphabetically</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Filter by Publication</label>
+
+            <select class="publication-select" data-block="{{block.id}}"  onchange="journoPortfolio.updateArticleBlock({{block.id}}, 'publication', this.value)">
+                <option value="all" selected>All Publications</option>
+                {% for pub in block.publications %}
+                    <option value="{{pub.publication_id}}">{{pub.publication__name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="loading-gif" >
+    <img src="{{ 'img/loading.gif' | global_asset_url }}">
+</div>
+{% endif %}

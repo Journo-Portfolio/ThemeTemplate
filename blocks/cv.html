@@ -1,0 +1,8 @@
+
+<section class="block-cv">
+    <div class="wrapper">
+        <div class="cv-pdf" id="cv{{loop.index}}"></div>
+        <script src="{{ 'js/pdfobject-201604172.min.js' | global_asset_url }}"></script>
+        <script>PDFObject.embed("{{block.file.file.url}}", "#cv{{loop.index}}");</script>
+    </div>
+</section>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% if article %}
+    <title>{{article.title}} / {{portfolio.title}}</title>
+    {% else %}
+    <title>{{page.name}} / {{portfolio.title}}</title>
+    {% endif %}
+
+    {% include 'snippets/meta.html' %}
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ 'css/style.scss' | asset_url }}" type="text/css" charset="utf-8">
+
+</head>
+<body id="{% block pageid %}{% endblock %}">
+
+    {% include 'snippets/header.html' %}
+
+    <main class="container">
+        <div class="page">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    {% include 'snippets/footer.html' %}
+
+    {% include 'snippets/scripts.html' %}
+
+</body>
+</html>

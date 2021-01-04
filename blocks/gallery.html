@@ -1,0 +1,28 @@
+<section class="block-gallery">
+    <div class="wrapper">
+        <div class="gallery-item__wrapper">
+            {% for image in block.images %}
+                {% if image.image.image and image.image.image.url != '' %}
+                    <div class="gallery-item">
+                        <a class="gallery-item__img">
+                            {% if image.image.credit_text %}
+                                <span target="_blank" class="img-credit">
+                                    <span>{{image.image.credit_text}}</span>
+                                </span>
+                            {% endif %}
+                            <img {% if image.image.alt_text %}alt="{{image.image.alt_text}}" title="{{image.image.alt_text}}"{% endif %} src="{{ image.image.image.url|resize('max-400') }}">
+                        </a>
+
+                        <div class="gallery-item__modal">
+                            <div class="gallery-item__modal-content">
+                                <img {% if image.image.alt_text %}alt="{{image.image.alt_text}}" title="{{image.image.alt_text}}"{% endif %} data-src="{{image.image.image.url}}">
+                                <div class="caption">{{image.caption}}</div>
+                                <div class="caption-hidden">{{image.caption}}</div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

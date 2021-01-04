@@ -1,0 +1,28 @@
+<section class="block-slider">
+    <div class="wrapper">
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {% for image in block.images %}
+                    {% if image.image.image and image.image.image.url != '' %}
+                        <div class="swiper-slide">
+                            {% with image=image.image %}
+                                {% include 'snippets/image_credit.html' %}
+                            {% endwith %}
+
+                            <img {% if image.image.alt_text %}alt="{{image.image.alt_text}}" title="{{image.image.alt_text}}"{% endif %} src="{{image.image.image.url}}">
+
+                            {% if image.caption and image.caption != '' %}
+                                <div class="caption">{% if image.caption and image.caption != '' %}{{image.caption}}{% endif %}</div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</section>

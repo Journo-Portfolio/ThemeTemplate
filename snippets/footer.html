@@ -1,0 +1,18 @@
+
+<footer>
+    {% if portfolio.footer_text %}
+    <small>{{portfolio.footer_text | safe}}</small>
+    {% endif %}
+
+    <ul>
+        {% for page_link in portfolio.pages %}
+            {% include 'snippets/nav_link.html' %}
+        {% endfor %}
+    </ul>
+
+    {% if not portfolio.hide_branding %}
+    <small>
+        Built with <a href="https://www.journoportfolio.com">Journo Portfolio</a>
+    </small>
+    {% endif %}
+</footer>

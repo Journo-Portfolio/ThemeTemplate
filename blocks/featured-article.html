@@ -1,0 +1,32 @@
+
+<section class="block-featured-article">
+    <div class="wrapper">
+        <div class="article">
+
+            {% with image=block.article.image %}
+                {% include 'snippets/image_credit.html' %}
+            {% endwith %}
+
+            <img class="article__image" src="{{block.article.image.image.url}}">
+
+            <div class="article__content">
+
+                {% if not settings.hide_article_meta %}
+                <div class="author">
+                    {% if block.article.publication != 'Personal' %}<span itemprop="citation">{{block.article.publication}}</span>{% endif %}
+                    {% if block.article.publication != 'Personal' and settings.hide_article_dates %} &bull; {% endif %}
+                    {% if not settings.hide_article_dates %}<span itemprop="datePublished">{{block.article.published_date}}</span>{% endif %}
+                </div>
+                {% endif %}
+
+                <h2>{{block.article.title}}</h2>
+
+                <div>
+                    {{block.article.extract | safe}}
+                </div>
+
+                <a class="btn" onclick="ga('jpAnalytics.send', 'event', 'article-view', '{{block.article.user.id}}-{{block.article.id}}', null, {'transport': 'beacon', 'hitCallback': function(){document.location = '{{block.article.view_url}}';}});" href="{{block.article.view_url}}" target="_blank">Read More &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>

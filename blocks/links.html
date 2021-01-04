@@ -1,0 +1,19 @@
+<section class="block-links block-links--{{block.links|length}} block-links--columns-{{block.columns}} block-links--margin-{{block.margin}} block-links--font-size-{{block.font_size|lower}}">
+    {% if block.width == 'Content' %}
+    <div class="wrapper">
+    {% endif %}
+
+    <div class="block-links__content">
+        {% for link in block.links %}
+            <div class="block-links__link">
+                <a href="{{link.url}}" {% if link.image.image and link.image.image.url != '' %}style="background-image: url('{{link.image.image.url}}');"{% endif %} target="_self">
+                    <h2>{{link.text}}</h2>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if block.width == 'Content' %}
+    </div>
+    {% endif %}
+</section>

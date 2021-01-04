@@ -1,0 +1,53 @@
+
+<div class="article_modal__meta">
+    {% if article.publication.name != 'Personal' %}
+    <span itemprop="citation">{{article.publication}}</span>
+    {% endif %}
+
+    {% if article.hide_date %}{% else %}
+    <span class="article_modal__date">{% if article.publication.name != 'Personal' %} &bull; {% endif %}
+        <span itemprop="datePublished">{{article.published_date}}</span>
+    </span>
+    {% endif %}
+</div>
+
+<h2 class="article_modal__title" itemprop="name">{{article.title}}</h2>
+
+<div class="article_modal__text" itemprop="description">
+    {{article.description|safe}}
+</div>
+
+{% if article.item_type == 'url' %}
+<a class="article_modal__link" href="{{article.view_url}}" target="_blank">
+  Visit URL
+  <span>
+  {{article.url}}</span>
+</a>
+{% endif %}
+
+{% if article.item_type != 'url' and article.item_type != 'vimeo' and article.item_type != 'facebook-video' and article.item_type != 'reverbnation' and article.item_type != 'youtube' and article.item_type != 'soundcloud'  %}
+<a class="article_modal__link" href="{{article.view_url}}" target="_blank">
+  View
+</a>
+{% endif %}
+
+{% if article.item_type == 'soundcloud' %}
+    <iframe width="100%" height="180" scrolling="no" frameborder="no" src="{{article.url}}&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>
+{% endif %}
+
+{% if article.item_type == 'vimeo' %}
+    <iframe src="{{article.url}}?badge=0" width="100%" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+{% endif %}
+
+{% if article.item_type == 'reverbnation' %}
+    <iframe width="100%" height="150" scrolling="no" frameborder="no" src="{{article.url}}" style="width:0px;min-width:100%;max-width:100%;"></iframe>
+{% endif %}
+
+{% if article.item_type == 'youtube' %}
+    <iframe width="100%" height="400" src="{{article.url}}" frameborder="0" allowfullscreen></iframe>
+{% endif %}
+
+{% if article.item_type == 'facebook-video' %}
+    <iframe src="https://www.facebook.com/plugins/video.php?href={{article.url_encoded}}&show_text=false&width=734&appId=251448785017470&height=1299" width="734" height="1299" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>
+{% endif %}
+

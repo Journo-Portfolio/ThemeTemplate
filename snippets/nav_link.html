@@ -1,0 +1,13 @@
+<li data-pageid="{{page_link.id}}" data-name="{{page_link.name}}">
+    <a {% if page_link.page_type == 'link' %}target="_blank" {% else %}target="_self" {% endif %} class="{% if page.slug == page_link.slug or page.parent.slug == page_link.slug %}active{% endif %}" href="{{page_link.url}}">{{page_link.name}}</a>
+
+    {% if page_link.children %}
+    <ul class="dropdown">
+        {% for sub_page_link in page_link.children %}
+        <li data-pageid="{{sub_page_link.id}}" data-name="{{sub_page_link.name}}">
+            <a {% if sub_page_link.page_type == 'link' %}target="_blank" {% else %}target="_self" {% endif %} class="{% if page.slug == sub_page_link.slug %}active{% endif %}" href="{{sub_page_link.url}}">{{sub_page_link.name}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</li>

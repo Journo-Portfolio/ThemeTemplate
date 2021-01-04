@@ -1,0 +1,97 @@
+
+<script src="{{ 'js/jquery-3.4.1.min.js' | global_asset_url }}"></script>
+<script src="{{ 'js/jquery.fitvids-1.1.js' | global_asset_url }}"></script>
+<script src="{{ 'js/macy-1.0.0.js' | global_asset_url }}"></script>
+<script src="{{ 'js/swiper-3.4.1.min.js' | global_asset_url }}"></script>
+<script src="{{ 'js/journoportfolio.js' | global_asset_url }}"></script>
+<script src="{{ 'js/scripts.js' | asset_url }}"></script>
+
+{% if portfolio.custom_scripts %}
+{{ portfolio.custom_scripts | safe }}
+{% endif %}
+
+
+<div id="article_modal">
+  <div class="article_modal__modal">
+    <a class="close">Close <span>&#10005;</span></a>
+    <div class="loading">
+      <img src="{{ 'img/loading.gif' | global_asset_url }}">
+    </div>
+    <div class="article_modal__content">
+    </div>
+  </div>
+</div>
+
+{{contact_form_sent}}
+
+{% if contact_form_sent %}
+<div class="contact-overlay open">
+  <div class="subscription-modal">
+    <div class="contact-close"></div>
+    <div class="success">
+      <h3>Thank you!</h3>
+
+      <h3>Your message has been sent.</h3>
+
+      <button class="contact-close-2">Close</button>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
+{% if subscribe_form_saved %}
+<div class="subscription-overlay open">
+    <div class="subscription-modal">
+        <div class="subscription-close"></div>
+        <div class="success">
+          <h3>Thank you for subscribing!</h3>
+
+          <p>You will receive an email (at most once a week) with any new articles.</p>
+
+          <p>You can unsubscribe anytime with a link in the footer of the email.</p>
+
+          <button class="subscription-close-2">Close</button>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if portfolio.subscription_signup_enabled %}
+<div class="subscription-overlay {% if subscribe_form.errors %}open{% endif %}">
+  <div class="subscription-modal">
+    <div class="subscription-close"></div>
+    <form method="POST" action="{{request.path}}#subscribe" enctype="multipart/form-data" id="subscribe">
+        <h3>Subscribe to get sent a digest of new articles by {{portfolio.title}}</h3>
+
+         {{subscribe_form.captcha.errors}}
+         {{subscribe_form.captcha.render}}
+
+        <div class="comment-form__fields">
+            <div class="comment-form__field">
+                <label>Name</label>
+                {{subscribe_form.name.render}}
+                {{subscribe_form.name.errors}}
+            </div>
+
+            <div class="comment-form__field">
+                <label>Email</label>
+                {{subscribe_form.email.render}}
+                {{subscribe_form.email.errors}}
+
+            </div>
+        </div>
+
+        <small>This site is protected by reCAPTCHA and the Google 
+            <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+            <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+        </small>
+        
+      <p class="legal">One-click unsubscribe anytime, your email will not be used for anything else.</p>
+
+        <button>Subscribe</button>
+    </form>
+  </div>
+</div>
+
+{% endif %}

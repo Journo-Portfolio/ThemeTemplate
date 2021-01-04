@@ -1,0 +1,10 @@
+<section class="block-twitter">
+    <div class="wrapper">
+        {% if block.handle %}
+            <a class="twitter-timeline" data-height="1500" data-dnt="true" data-theme="light" href="https://twitter.com/{{block.handle}}{% if block.likes %}/likes{% endif %}">Tweets {% if block.likes %}liked {% endif %}by {{block.handle}}</a>
+            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        {% else %}
+            Add your Twitter handle to the page block config
+        {% endif %}
+    </div>
+</section>

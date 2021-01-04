@@ -1,0 +1,40 @@
+{% extends 'templates/base.html' %}
+
+{% block content %}
+<div class="wrapper">
+
+    <section class="article-page">
+
+        <a {% if article.page %}href="{{article.page.url}}"{% else %}href="{{portfolio.url}}"{% endif %} class="back_link" target="_self">&larr; Back to portfolio</a>
+
+
+        <article itemscope itemtype="http://data-vocabulary.org/Article">
+
+            {% if article.image %}
+            <img itemprop="image" {% if article.image.alt_text %}alt="{{article.image.alt_text}}" title="{{article.image.alt_text}}"{% endif %} class="article__img" src="{{article.image.image.url}}">
+            {% endif %}
+
+            <div class="article-page__header">
+                <h1 itemprop="headline">{{article.title}}</h1>
+
+                <span class="meta">
+                    Published on <span itemprop="datePublished">{{article.published_date}}</span>
+                </span>
+            </div>
+
+            <div class="article-page__content">
+                {{article.content|safe}}
+
+                {% if show_blog_social_links %}
+                <div class="sharethis-inline-share-buttons"></div>
+                {% endif %}
+            </div>
+
+            <div class="article-page__comments">
+                {% include 'snippets/comments.html' %}
+            </div>
+
+        </article>
+    </section>
+</div>
+{% endblock %}

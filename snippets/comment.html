@@ -1,0 +1,11 @@
+<div class="comment" id="comment-{{comment.id}}">
+    {% if is_new_comment %}
+        <p class="new-comment">This comment is pending moderation and email verification</p>
+    {% endif %}
+
+    <a class="comment__permalink" href="{{article.view_url}}#comment-{{comment.id}}">Permalink</a>
+    <h3>{{comment.name}}</h3>
+    <h4>Posted on {{comment.datetime}}</h4>
+
+    {{ comment.content | safe }}
+</div>
